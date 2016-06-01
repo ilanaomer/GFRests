@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="he">
+<head dir="rtl">
+    <meta charset="UTF-8">
+    <title>צליאקים סועדים</title>
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
+    <style>
+        .page-header{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body dir="rtl">
+    <div class = "page-header">
+       <h1>
+             צליאקים סועדים
+       </h1>
+    </div>
+
+    <div class="container-fluid">
+
+        <table class="table table-bordered" dir="rtl">
+            <thead>
+                <tr>
+                    <th dir="rtl">שם</th>
+                    <th>כתובת</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td>
+                        <a href="/{{object.id}}/">{{ object.name }}</a>
+                    </td>
+                    <td>{{ object.address }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

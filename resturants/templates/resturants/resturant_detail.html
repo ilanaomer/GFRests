@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>צליאקים סועדים</title>
+</head>
+<body>
+    <h1>{{ object.name }}</h1>
+
+    {% if object.logo %}
+        <img src="{{ object.logo.url }}" class="img-responsive">
+    {% endif %}
+
+    <table dir="rtl">
+        <tbody>
+            {% if object.web_site|length > 0 %}
+               <tr>
+                    <td>
+                        <a href="/{{ object.web_site }}">לאתר המסעדה</a>
+                    </td>
+                </tr>
+            {% else %}
+                None
+            {% endif %}
+            <tr>
+                <td>כתובת</td>
+                <td>{{ object.address }}</td>
+                <td>{{  object.city }}</td>
+            </tr>
+            <tr>
+                <td>טלפון</td>
+                <td>{{ object.phone_number }}</td>
+            </tr>
+            <tr>
+                <td>
+                    {{ object.cost_level }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p> {{ object.about|linebreaks  }} </p>
+
+</body>
+</html>
